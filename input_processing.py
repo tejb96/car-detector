@@ -22,9 +22,14 @@ class Sensor:
         self.pedestrian_status = pedestrian_status
         self.vehicle_status = vehicle_status
 
+    def reset_variables(self):
+        self.traffic_light = "green"
+        self.pedestrian_status = "no"
+        self.vehicle_status = "no"
+
     # updates the status 
     def update_status(self,input1,input2): # input1 is the selection of light, pedestrian...and input2 is the status
-        
+        # Nested if loops that return the updated status based on the two strings the user entered
         if input1 == "1":            
             if input2 == "red":
                 self.traffic_light = input2 
@@ -64,75 +69,76 @@ class Sensor:
 
 
 # The sensor object should be passed to this function to print the action message and current status
-# Replace these comments with your function commenting
+# Inquires about the change, then calls update_status() to update status and prints current status
 def print_message(sensor):
     while True:
         input1 = input("Are changes detected in the vision input?"+'\n'
                        + "Select 1 for light, 2 for pedestrian, 3 for vehicle, or 0 to end the program: ")
         if input1 == "1": # change in light
             input2 = input("What change has been identified?: ")
-            if input2 == "red": # if red
-                print()
-                print("STOP")
-                print()
+            print()
+            
+            if input2 == "red":                 
+                print("STOP"+'\n')                
                 current_status=sensor.update_status(input1,input2) # updates the instance variables and returns the current status
-                print("Light = "+current_status[0]+", Pedestrian = " + current_status[1] + ", Vehicle = " + current_status[2]) 
-                print()              
-            elif input2 == "green":
-                print()
-                print("Proceed")
-                print()
+                print("Light = "+current_status[0]+", Pedestrian = " + current_status[1] + ", Vehicle = " + current_status[2]+'\n')                 
+                sensor.reset_variables()
+                            
+            elif input2 == "green":                
+                print("Proceed" + '\n')                
                 current_status=sensor.update_status(input1,input2) # updates the instance variables and returns the current status
-                print("Light = "+current_status[0]+", Pedestrian = " + current_status[1] + ", Vehicle = " + current_status[2]) 
-                print()  
-                print()
-                print("Caution")
-                print()
+                print("Light = "+current_status[0]+", Pedestrian = " + current_status[1] + ", Vehicle = " + current_status[2] + '\n')                  
+                sensor.reset_variables()
+
+            elif input2 == "yellow":            
+                print("Caution" + '\n')                
                 current_status=sensor.update_status(input1,input2) # updates the instance variables and returns the current status
-                print("Light = "+current_status[0]+", Pedestrian = " + current_status[1] + ", Vehicle = " + current_status[2]) 
-                print() 
-            else: print("Invalid vision change")
+                print("Light = "+current_status[0]+", Pedestrian = " + current_status[1] + ", Vehicle = " + current_status[2] + '\n')                
+                sensor.reset_variables()                
+
+            else: print("Invalid vision change"+'\n')
 
         elif input1 == "2":
             input2 = input("What change has been identified?: ")
-            if input2 == "yes":
-                print()
-                print("STOP")
-                print()
+            print()
+
+            if input2 == "yes":                
+                print("STOP" + '\n')                
                 current_status=sensor.update_status(input1,input2) # updates the instance variables and returns the current status
-                print("Light = "+current_status[0]+", Pedestrian = " + current_status[1] + ", Vehicle = " + current_status[2]) 
-                print()  # updates the instance variables                
-            elif input2 == "no":
-                print()
-                print("Proceed")
-                print()
+                print("Light = "+current_status[0]+", Pedestrian = " + current_status[1] + ", Vehicle = " + current_status[2] + '\n')                   
+                sensor.reset_variables()
+
+            elif input2 == "no":                
+                print("Proceed" + '\n')                
                 current_status=sensor.update_status(input1,input2) # updates the instance variables and returns the current status
-                print("Light = "+current_status[0]+", Pedestrian = " + current_status[1] + ", Vehicle = " + current_status[2]) 
-                print()  # updates the instance variables                
-            else: print("Invalid vision change")
+                print("Light = "+current_status[0]+", Pedestrian = " + current_status[1] + ", Vehicle = " + current_status[2] + '\n')                 
+                sensor.reset_variables()
+
+            else: print("Invalid vision change" + '\n')
 
         elif input1 == "3":
             input2 = input("What change has been identified?: ")
-            if input2 == "yes":
-                print()
-                print("STOP")
-                print()
+            print()
+
+            if input2 == "yes":                
+                print("STOP" + '\n')                
                 current_status=sensor.update_status(input1,input2) # updates the instance variables and returns the current status
-                print("Light = "+current_status[0]+", Pedestrian = " + current_status[1] + ", Vehicle = " + current_status[2]) 
-                print()  # updates the instance variables                
+                print("Light = "+current_status[0]+", Pedestrian = " + current_status[1] + ", Vehicle = " + current_status[2] + '\n')                 
+                sensor.reset_variables()
+
             elif input2 == "no":
-                print()
-                print("Proceed")
-                print()
+                
+                print("Proceed" + '\n')                
                 current_status=sensor.update_status(input1,input2) # updates the instance variables and returns the current status
-                print("Light = "+current_status[0]+", Pedestrian = " + current_status[1] + ", Vehicle = " + current_status[2]) 
-                print()  # updates the instance variables 
-            else: print("Invalid vision change")
+                print("Light = "+current_status[0]+", Pedestrian = " + current_status[1] + ", Vehicle = " + current_status[2] + '\n')                
+                sensor.reset_variables()
+
+            else: print("Invalid vision change" + '\n')
 
         elif input1 == "0":
             break
 
-        else: print("Invalid vision change")
+        else: print("Invalid vision change" + '\n')
         
 
 
