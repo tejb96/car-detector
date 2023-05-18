@@ -107,10 +107,11 @@ def print_message(sensor):
                 print(
                     "Light = "
                     + current_status[0]
-                    + ", Pedestrian = "
+                    + " , Pedestrian = "
                     + current_status[1]  # Prints the current status
-                    + ", Vehicle = "
+                    + " , Vehicle = "
                     + current_status[2]
+                    + " ."
                     + "\n"
                 )
             # If light is yellow
@@ -119,10 +120,11 @@ def print_message(sensor):
                 print(
                     "Light = "
                     + current_status[0]
-                    + ", Pedestrian = "  # Prints current status
+                    + " , Pedestrian = "  # Prints current status
                     + current_status[1]
-                    + ", Vehicle = "
+                    + " , Vehicle = "
                     + current_status[2]
+                    + " ."
                     + "\n"
                 )
             # If light is green and no pedestrian and no vehicle
@@ -135,10 +137,11 @@ def print_message(sensor):
                 print(
                     "Light = "
                     + current_status[0]
-                    + ", Pedestrian = "  # Prints current status
+                    + " , Pedestrian = "  # Prints current status
                     + current_status[1]
-                    + ", Vehicle = "
+                    + " , Vehicle = "
                     + current_status[2]
+                    + " ."
                     + "\n"
                 )
         # Except block with if-elif for invalid menu selection and invalid change input
