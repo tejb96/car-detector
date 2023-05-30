@@ -91,7 +91,17 @@ def print_message(sensor):
             # Asks what the change is, and change_occured is assigned the input
             change_occured = input("What change has been identified?: ")
             # If the input is invalid, the message is displayed and the status is not updated
-            if change_occured not in ["red", "yellow", "green", "yes", "no"]:
+            if change_menu_input == "1" and change_occured not in [
+                "red",
+                "yellow",
+                "green",
+            ]:
+                print("Invalid vision change.")
+            elif (
+                change_menu_input == "2"
+                or change_menu_input == "3"
+                and change_occured not in ["yes", "no"]
+            ):
                 print("Invalid vision change.")
             else:
                 # updates the instance variables and returns the current status
